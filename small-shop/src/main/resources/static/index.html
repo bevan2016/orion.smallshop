@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html ng-app="SmallShop">
+<head>
+		<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width , initial-scale=1" >
+		<!-- the links should be  the official URL. I downloaded to local just in case they are not available sometimes -->
+		<script src="lib/jquery-2.1.1.min.js"></script>
+		<script src="lib/angular.min.js"></script>
+    	<script src="lib/angular-resource.min.js"></script>
+		
+		<script type="text/javascript" src="lib/small-shop.js"></script>
+		<script type="text/javascript" src="lib/shoppingController.js"></script>
+		<script type="text/javascript" src="lib/shoppingModel.js"></script>
+
+		<link rel="stylesheet" href="css/bootstrap.min.css" >
+		<link rel="stylesheet" href="css/small-shop.css">
+
+		<title>Small Shop</title>
+</head>
+<body>
+		<div  class="col-md-10" ng-controller="ShoppingController as mainCtrl">
+			<div >
+				<h3>Currently available in our shop:</h3>
+				<item  ng-repeat="item in mainCtrl.items" />
+			</div>
+			<hr>
+			<div >
+				<h3>Your shoppings:</h3>
+					<shopping ng-repeat="item in mainCtrl.items" /></shopping>
+					<button class="btn btn-primary col-sm-offset-2" ng-click="mainCtrl.placeOrder()">Buy</button>
+			</div>
+			<hr>
+			<div >
+				<h3>Your orders:</h3>
+				<div class="order" ng-repeat="order in mainCtrl.orders">
+					<article>
+						<div><p class="title">Order ID: {{order.id}}</p></div>
+						<div ng-repeat="item in ::order.items">
+							{{::item.item.name}}: {{::item.count}}</div>
+						</div>
+					</article>
+                </div>
+			</div>
+	  </div>
+</body>
+</html>

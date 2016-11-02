@@ -1,0 +1,38 @@
+- Reason why you used specific frameworks and libraries for the front-end and back-end
+   Back-end: 
+        -- spring: lots of features for developing, testing in Java
+        -- spring boot: create stand-alone Spring based Applications, built-in web server, automatically configure Spring without XML
+        -- JPA/spring data: powerful and mature technique for OR mappings
+        -- H2database: in memory database to simplify development, but the service can connect to other DBMS with some configuration changes
+        -- spring hateoas: provides some APIs to ease creating REST representations that follow the Hypermedia As The Engine Of Application State (HATEOAS) principle
+        -- I am quite familiar with spring family
+    Front-end:
+        -- AngularJS+Bootstrap: mvc or mvvc,  data binding, portable, simplify testing, learninig curve is not steep
+
+
+- How the persistent layer could be implemented?
+   As I implemented:
+   RDBMS:  in this application, I use H2 database as the storage as the data is structured
+   JPA/Spring data/Hibernate: provide lots of convienences on OR mapping and transaction management
+
+- How long did it take yo to create the code?
+  As I was interrupted always, roughly
+   services: 6 hours
+   front-end: 4 hours
+
+****************************************************
+Notes for running the application:
+0. if 8080 port is used, please open small-shop\src\main\resources\application.properties to chanage it to an available one.
+1. unzip the package to a folder
+2. cd to that folder
+4. mvn compile 
+5. mvn package 
+6. mvn spring-boot:run
+7 open your brower and access:
+    http://localhost:8080 for the web page
+    http://localhost:8080/rest/ for the REST APIs
+    http://localhost:8080/rest/items for all the available items
+    http://localhost:8080/rest/orders  for all the orders
+
+Two itmes were inserted into database at the server start up. Your orders will be there as long as you don't restart the server.
+You may close your browser or refresh.
